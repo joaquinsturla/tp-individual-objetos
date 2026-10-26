@@ -37,12 +37,30 @@ Todas las entradas que sacó del año anterior al actual.
 El nombre de las bandas por las que compró una entrada.
 */
 
+class registroBandas{
+    const bandas = new Dictionary()
+
+    method agregarRegistro(entrada) {
+        if (bandas.containsKey(entrada.banda())) {
+            bandas.put(entrada.banda(), bandas.get(entrada.banda())+1)
+        } else {
+            bandas.put(entrada.banda(), 1)
+        }
+    }
+
+    method bandaMasPopular() {
+        bandas.forEach({k, v => })
+    }
+
+
+}
+
 class Asistente {
     var banda 
     var abono
     const property historialEntradas = []
     var balance
-    const porcentajeDcto
+    var property porcentajeDcto
 
     method comprarEntrada(entrada) {
         const costo = abono.calcularPrecio(entrada, porcentajeDcto)
@@ -75,10 +93,11 @@ class Asistente {
 }
 
 object fan {
-    method calcularPrecio(entrada, dcto) = entrada.precioFinal()
+    method calcularPrecio(entrada, dcto) = entrada.precioAlPublico()
 }
+//tiene que ser una clase?
 object vip {
-    method calcularPrecio(entrada, dcto) = entrada.precioFinal() - entrada.precioFinal()*dcto
+    method calcularPrecio(entrada, dcto) = entrada.precioAlPublico() - entrada.precioAlPublico()*dcto
 }
 
 /*Bandas
@@ -158,6 +177,8 @@ object productora {
         return asistentes.map({asistente => asistente.cantEntradasCompradas()}).sum()
     }
 
-
+    method modificarAsistente(asistente) {
+        asistente.porcentajeDcto(asistente.porcentajeDcto() + asistente.porcentajeDcto()*0.01)
+    }
 
 }
