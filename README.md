@@ -11,4 +11,4 @@
 **Manejo de Errores mediante Excepciones:** Para controlar las compras de entradas, implemente el método validarCompra(), que usa self.error("mensaje") cuando el saldo no alcanza. Así, si no se cumple una condición necesaria para realizar la compra, se interrumpe la operación en lugar de dejar que continúe y pueda generar un estado inconsistente.
 
 ## **Diagrama de clase**
-![Diagrama de Clases](diagrama de clase.png)
+![Diagrama de Clases](<diagrama de clase.png>)
